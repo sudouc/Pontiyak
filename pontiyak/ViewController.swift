@@ -108,30 +108,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     static var enable:Bool = true
     @IBAction func getMyLocation(_ sender: UIButton) {
         
-        if CLLocationManager.locationServicesEnabled() {
-            if ViewController.enable {
-                locationManager.stopUpdatingHeading()
-            }else{
-                locationManager.startUpdatingLocation()
-            }
-            ViewController.enable = !ViewController.enable
-        }
-    }
-    
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView?{
-        let identifier = "pin"
-        var view : MKPinAnnotationView
-        if let dequeueView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView{
-            dequeueView.annotation = annotation
-            view = dequeueView
-        }else{
-            view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-            view.canShowCallout = true
-            view.calloutOffset = CGPoint(x: -5, y: 5)
-        }
-        view.pinTintColor = .red
-        return view
-    }
+    }   
     
 }
 

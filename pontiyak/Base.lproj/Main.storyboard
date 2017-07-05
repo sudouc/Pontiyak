@@ -10,35 +10,6 @@
     </dependencies>
     <scenes>
         <!--Feed-->
-        <scene sceneID="c3Z-ct-jA8">
-            <objects>
-                <tableViewController id="UD6-0k-0fZ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="PYc-re-hia">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hLk-KR-EeY">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hLk-KR-EeY" id="1vE-cz-pN1">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="UD6-0k-0fZ" id="txS-yL-krw"/>
-                            <outlet property="delegate" destination="UD6-0k-0fZ" id="19e-4D-QIg"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="jbk-BH-swg"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0z5-oF-W9o" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1246" y="-806"/>
-        </scene>
-        <!--Feed-->
         <scene sceneID="9jT-6u-xnd">
             <objects>
                 <navigationController id="Qbp-N6-9e7" sceneMemberID="viewController">
@@ -49,12 +20,37 @@
                         <color key="barTintColor" red="0.41727787160000002" green="0.41473632849999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="UD6-0k-0fZ" kind="relationship" relationship="rootViewController" id="tEf-wr-zK0"/>
+                        <segue destination="1vu-lr-Gih" kind="relationship" relationship="rootViewController" id="aSl-6m-9Md"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bbl-pb-dia" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="294" y="-806"/>
+        </scene>
+        <!--Feed-->
+        <scene sceneID="mgk-sm-2b5">
+            <objects>
+                <viewController id="1vu-lr-Gih" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="98p-o3-hKa"/>
+                        <viewControllerLayoutGuide type="bottom" id="MIo-9p-u6G"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pL4-p0-tZd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="zO3-yV-9wW">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Feed" id="ZM6-PI-fZC"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2mW-Bc-cPa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1245.5999999999999" y="-806.44677661169419"/>
         </scene>
         <!--Map-->
         <scene sceneID="2lM-gq-Tvk">
