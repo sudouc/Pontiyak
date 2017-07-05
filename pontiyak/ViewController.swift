@@ -128,7 +128,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
             view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             view.canShowCallout = true
             view.calloutOffset = CGPoint(x: -5, y: 5)
-            view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
         }
         view.pinTintColor = .red
         return view
