@@ -41,6 +41,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         if let coor = map.userLocation.location?.coordinate{
             map.setCenter(coor, animated: true)
         }
+        
         addLongPressGesture()
     }
     
@@ -68,7 +69,15 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         let touchMapCoordinate:CLLocationCoordinate2D = self.map.convert(touchPoint, toCoordinateFrom: self.map)
         
         let annot:MKPointAnnotation = MKPointAnnotation()
+        
+        
         annot.coordinate = touchMapCoordinate
+        annot.title = "Your Pin"
+        annot.subtitle = "Tap to edit"
+        
+        //Adds label to marker
+        let pinView = MKAnnotationView.init(annotation: annot, reuseIdentifier: nil)
+        pinView.isEnabled = true
         
         self.resetTracking()
         self.map.addAnnotation(annot)
@@ -111,5 +120,6 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     }   
     
 }
+
 
 
