@@ -35,7 +35,6 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         photoCapture.delegate = self
         present(photoCapture, animated: true,completion: nil)
         
-
         
     }
     
