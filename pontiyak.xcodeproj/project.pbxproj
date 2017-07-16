@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF461F1A260F003C5F3E /* IntroViewController.swift */; };
+		AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */; };
 		FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */; };
 		FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAC1F0C4D6600810F05 /* ViewController.swift */; };
 		FA959FB21F0C4D6600810F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA959FB01F0C4D6600810F05 /* Main.storyboard */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		AA49CF461F1A260F003C5F3E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		FA959FA71F0C4D6600810F05 /* pontiyak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pontiyak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA959FAC1F0C4D6600810F05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				FA959FAC1F0C4D6600810F05 /* ViewController.swift */,
 				AA49CF461F1A260F003C5F3E /* IntroViewController.swift */,
 				FA959FB01F0C4D6600810F05 /* Main.storyboard */,
+				AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */,
 				FA959FB31F0C4D6600810F05 /* Assets.xcassets */,
 				FA959FB51F0C4D6600810F05 /* LaunchScreen.storyboard */,
 				FA959FB81F0C4D6600810F05 /* Info.plist */,
@@ -284,6 +287,7 @@
 				AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */,
 				FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */,
 				FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */,
+				AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
