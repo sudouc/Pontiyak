@@ -140,18 +140,6 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="UniPing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="txH-Gs-YP2">
                                 <rect key="frame" x="39" y="225" width="224" height="81"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-
-                                <state key="normal" title="Begin"/>
-                                <connections>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <segue destination="0l4-DP-nPB" kind="show" identifier="customImage" id="kLl-MB-YVm"/>
-                    </connections>
-
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="50"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -177,42 +165,52 @@
                     <navigationItem key="navigationItem" title="Welcome" id="zDm-2v-HtO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dav-U3-aLG"/>
                     </navigationItem>
-
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84K-3h-A8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2639.1999999999998" y="-974.6626686656673"/>
         </scene>
-        <!--Confirm View Controller-->
-        <scene sceneID="t4E-PI-etQ">
+        <!--Confrim-->
+        <scene sceneID="hHp-YN-ctu">
             <objects>
-                <viewController id="0l4-DP-nPB" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Confrim" id="eRG-ku-X8I" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="pQJ-em-Hc2"/>
-                        <viewControllerLayoutGuide type="bottom" id="1Jy-wZ-Z9v"/>
+                        <viewControllerLayoutGuide type="top" id="5Hj-5W-fqN"/>
+                        <viewControllerLayoutGuide type="bottom" id="CkY-jO-mNp"/>
                     </layoutGuides>
-
-                    <view key="view" contentMode="scaleToFill" id="azZ-my-Jaz">
-
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="showProfilePicture" id="M0g-bw-dap">
-
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZ6-dD-nuE">
-                                <rect key="frame" x="98" y="85" width="179" height="179"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-QK-nLb">
+                                <rect key="frame" x="119" y="97" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-
+                                <gestureRecognizers/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwY-iF-GOj">
+                                <rect key="frame" x="163" y="417" width="48" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start"/>
+                                <connections>
+                                    <segue destination="EJh-NK-dvM" kind="presentation" id="2Jb-68-4W5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
                     </view>
                     <connections>
-                        <outlet property="imageView" destination="oZ6-dD-nuE" id="dR0-Q4-4Pm"/>
+                        <outlet property="userImage" destination="PsA-QK-nLb" id="NbR-Cy-i8y"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MSB-s2-zzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="bpL-9c-baw">
+                    <connections>
+                        <action selector="captureImage:" destination="eRG-ku-X8I" id="427-I6-N7W"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-1695" y="-974"/>
+            <point key="canvasLocation" x="-1842.4000000000001" y="-974.6626686656673"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P8T-Qp-s0M">
