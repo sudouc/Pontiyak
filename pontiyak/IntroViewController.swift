@@ -8,16 +8,17 @@
 
 import UIKit
 
-class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
+class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    var userImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -25,21 +26,21 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
     
     //MARK: Camera Functions
     
-    @IBAction func beginButton(_ sender: Any) {
-//        let photoCapture = UIImagePickerController()
-//        
-//        photoCapture.sourceType = .camera
-//        photoCapture.cameraCaptureMode = .photo
-//        photoCapture.cameraDevice = .front
-//        
-//        photoCapture.delegate = self
-//        present(photoCapture, animated: true,completion: nil)
+    @IBAction func getImage(){
+        let photoCapture = UIImagePickerController()
+        
+        photoCapture.sourceType = .camera
+        photoCapture.cameraCaptureMode = .photo
+        photoCapture.cameraDevice = .front
+        
+        photoCapture.delegate = self
+        present(photoCapture, animated: true,completion: nil)
         
         
     }
     
     //MARK: UIImagePickerControllerDelegate
-    func beginButtonControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
     }
@@ -52,21 +53,30 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         // Set photoImageView to display the selected image.
-//        photoImageView.image = selectedImage
+        userImage = selectedImage
+        
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+        
+        self.performSegue( withIdentifier: "customImage", sender: self)
+        
+        
     }
-
+    
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
+        
+        //         Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        
+        if segue.identifier == "customImage"{
+            let addImage = segue.destination as! ConfirmViewController
+            addImage.userImage = userImage
+            
+        }
     }
-
-
+    
 }

@@ -135,67 +135,46 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Begin"/>
                                 <connections>
-                                    <action selector="beginButton:" destination="46C-v8-4Qc" eventType="touchUpInside" id="zFg-o8-abC"/>
-                                    <segue destination="eRG-ku-X8I" kind="show" id="qGB-SB-6Tw"/>
+                                    <action selector="getImage" destination="46C-v8-4Qc" eventType="touchUpInside" id="bDO-zq-6FR"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="0l4-DP-nPB" kind="show" identifier="customImage" id="kLl-MB-YVm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84K-3h-A8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2638" y="-974"/>
         </scene>
-        <!--Confrim-->
-        <scene sceneID="hHp-YN-ctu">
+        <!--Confirm View Controller-->
+        <scene sceneID="t4E-PI-etQ">
             <objects>
-                <viewController title="Confrim" id="eRG-ku-X8I" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="0l4-DP-nPB" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Hj-5W-fqN"/>
-                        <viewControllerLayoutGuide type="bottom" id="CkY-jO-mNp"/>
+                        <viewControllerLayoutGuide type="top" id="pQJ-em-Hc2"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Jy-wZ-Z9v"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="M0g-bw-dap">
+                    <view key="view" contentMode="scaleToFill" id="azZ-my-Jaz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-QK-nLb">
-                                <rect key="frame" x="119" y="97" width="136" height="136"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oZ6-dD-nuE">
+                                <rect key="frame" x="98" y="85" width="179" height="179"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="bpL-9c-baw" appends="YES" id="GSg-qG-fsm"/>
-                                    <outletCollection property="gestureRecognizers" destination="bpL-9c-baw" appends="YES" id="GDF-01-h5s"/>
-                                </connections>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KwY-iF-GOj">
-                                <rect key="frame" x="163" y="417" width="48" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Start"/>
-                                <connections>
-                                    <segue destination="EJh-NK-dvM" kind="show" animates="NO" id="TgW-eW-vQs"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="bpL-9c-baw" appends="YES" id="gGA-vb-vMe"/>
-                            <outletCollection property="gestureRecognizers" destination="bpL-9c-baw" appends="YES" id="PuA-ar-hat"/>
-                        </connections>
                     </view>
                     <connections>
-                        <outlet property="userImage" destination="PsA-QK-nLb" id="sdg-rt-X74"/>
+                        <outlet property="imageView" destination="oZ6-dD-nuE" id="dR0-Q4-4Pm"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MSB-s2-zzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="bpL-9c-baw">
-                    <connections>
-                        <action selector="captureImage:" destination="eRG-ku-X8I" id="h4c-To-4ef"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n60-hw-PU2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1842.4000000000001" y="-974.6626686656673"/>
+            <point key="canvasLocation" x="-1695" y="-974"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="P8T-Qp-s0M">
