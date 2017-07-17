@@ -21,14 +21,14 @@ class ConfirmViewController: UIViewController,UIImagePickerControllerDelegate, U
     }
     
     @IBAction func captureImage(_ sender: UITapGestureRecognizer) {
-                let photoCapture = UIImagePickerController()
+        let photoCapture = UIImagePickerController()
         
-                photoCapture.sourceType = .camera
-                photoCapture.cameraCaptureMode = .photo
-                photoCapture.cameraDevice = .front
+        photoCapture.sourceType = .camera
+        photoCapture.cameraCaptureMode = .photo
+        photoCapture.cameraDevice = .front
         
-                photoCapture.delegate = self
-                present(photoCapture, animated: true,completion: nil)
+        photoCapture.delegate = self
+        present(photoCapture, animated: true,completion: nil)
     }
     
     //MARK: UIImagePickerControllerDelegate
