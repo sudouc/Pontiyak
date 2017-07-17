@@ -8,8 +8,10 @@
 
 import UIKit
 
-
 class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    
+    
     
     var userImage: UIImage!
     
@@ -36,7 +38,6 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         photoCapture.delegate = self
         present(photoCapture, animated: true,completion: nil)
         
-        
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -45,6 +46,8 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         dismiss(animated: true, completion: nil)
     }
     
+    
+    // MARK: - UIImagePickerControllerDelegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // The info dictionary may contain multiple representations of the image. You want to use the original.
@@ -61,7 +64,9 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         
         self.performSegue( withIdentifier: "customImage", sender: self)
         
-        
+        // TODO Get this to work
+        let vc = ConfirmViewController()
+        self.present(vc, animated: true, completion: nil)
     }
     
     // MARK: - Navigation
