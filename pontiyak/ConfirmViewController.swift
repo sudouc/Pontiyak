@@ -1,45 +1,38 @@
 //
-//  IntroViewController.swift
+//  ConfirmViewController.swift
 //  pontiyak
 //
-//  Created by Stephen Mercer on 15/7/17.
+//  Created by Stephen Mercer on 16/7/17.
 //  Copyright © 2017 Sudo. All rights reserved.
 //
 
 import UIKit
 
-class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class ConfirmViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
-    
+    @IBOutlet weak var userImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    //MARK: Camera Functions
-    
-    @IBAction func beginButton(_ sender: Any) {
-//        let photoCapture = UIImagePickerController()
-//        
-//        photoCapture.sourceType = .camera
-//        photoCapture.cameraCaptureMode = .photo
-//        photoCapture.cameraDevice = .front
-//        
-//        photoCapture.delegate = self
-//        present(photoCapture, animated: true,completion: nil)
         
         
+    }
+    
+    @IBAction func captureImage(_ sender: UITapGestureRecognizer) {
+                let photoCapture = UIImagePickerController()
+        
+                photoCapture.sourceType = .camera
+                photoCapture.cameraCaptureMode = .photo
+                photoCapture.cameraDevice = .front
+        
+                photoCapture.delegate = self
+                present(photoCapture, animated: true,completion: nil)
     }
     
     //MARK: UIImagePickerControllerDelegate
-    func beginButtonControllerDidCancel(_ picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         // Dismiss the picker if the user canceled.
         dismiss(animated: true, completion: nil)
     }
@@ -52,21 +45,26 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         // Set photoImageView to display the selected image.
-//        photoImageView.image = selectedImage
+        userImage.image = selectedImage
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
 
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+
+    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        
     }
-
+    */
 
 }
