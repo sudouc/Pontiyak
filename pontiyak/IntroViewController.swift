@@ -9,7 +9,8 @@
 import UIKit
 
 class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
+    
+    
     
     
     override func viewDidLoad() {
@@ -24,18 +25,14 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     //MARK: Camera Functions
-    
     @IBAction func beginButton(_ sender: Any) {
         let photoCapture = UIImagePickerController()
-//        
+        
         photoCapture.sourceType = .camera
         photoCapture.cameraCaptureMode = .photo
         photoCapture.cameraDevice = .front
-//        
         photoCapture.delegate = self
         present(photoCapture, animated: true,completion: nil)
-        
-        
     }
     
     //MARK: UIImagePickerControllerDelegate
@@ -44,6 +41,8 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         dismiss(animated: true, completion: nil)
     }
     
+    
+    // MARK: - UIImagePickerControllerDelegate Methods
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         // The info dictionary may contain multiple representations of the image. You want to use the original.
@@ -52,10 +51,16 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         // Set photoImageView to display the selected image.
-//        photoImageView.image = selectedImage
+        // photoImageView.image = selectedImage
+        
+        
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
+        
+        // TODO Get this to work
+        let vc = ConfirmViewController()
+        self.present(vc, animated: true, completion: nil)
     }
 
     // MARK: - Navigation
