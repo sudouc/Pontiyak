@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="46C-v8-4Qc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="46C-v8-4Qc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -127,7 +127,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="beginButton:" destination="46C-v8-4Qc" eventType="touchUpInside" id="Ibn-FY-fAg"/>
+                                    <action selector="getImage" destination="46C-v8-4Qc" eventType="touchUpInside" id="taZ-Rf-6Kx"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Made by Sudo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fy4-f9-caF">
@@ -165,6 +165,9 @@
                     <navigationItem key="navigationItem" title="Welcome" id="zDm-2v-HtO">
                         <barButtonItem key="backBarButtonItem" title="Back" id="dav-U3-aLG"/>
                     </navigationItem>
+                    <connections>
+                        <segue destination="eRG-ku-X8I" kind="show" identifier="imagePresent" id="h50-wd-gyR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="84K-3h-A8n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -173,7 +176,7 @@
         <!--Confrim-->
         <scene sceneID="hHp-YN-ctu">
             <objects>
-                <viewController title="Confrim" id="eRG-ku-X8I" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConfirmView" title="Confrim" modalTransitionStyle="flipHorizontal" id="eRG-ku-X8I" customClass="ConfirmViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="5Hj-5W-fqN"/>
                         <viewControllerLayoutGuide type="bottom" id="CkY-jO-mNp"/>
@@ -182,7 +185,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="startBackground" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-QK-nLb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PsA-QK-nLb">
                                 <rect key="frame" x="119" y="97" width="136" height="136"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -200,15 +203,10 @@
                         <gestureRecognizers/>
                     </view>
                     <connections>
-                        <outlet property="userImage" destination="PsA-QK-nLb" id="NbR-Cy-i8y"/>
+                        <outlet property="imageView" destination="PsA-QK-nLb" id="W3d-Wa-Mji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MSB-s2-zzV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="bpL-9c-baw">
-                    <connections>
-                        <action selector="captureImage:" destination="eRG-ku-X8I" id="427-I6-N7W"/>
-                    </connections>
-                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1842.4000000000001" y="-974.6626686656673"/>
         </scene>
@@ -237,6 +235,5 @@
         <image name="Intro" width="375" height="666"/>
         <image name="compass" width="24" height="28"/>
         <image name="news paper" width="25" height="25"/>
-        <image name="startBackground" width="1024" height="682"/>
     </resources>
 </document>

@@ -8,15 +8,16 @@
 
 import UIKit
 
-class ConfirmViewController:UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ConfirmViewController:UIViewController {
 
+    
     @IBOutlet weak var imageView: UIImageView!
-    var userImage:UIImage? = nil
+    var photo:UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageView.image = userImage
-        
+    
+        imageView.image = photo
         // Do any additional setup after loading the view.
         
     }
