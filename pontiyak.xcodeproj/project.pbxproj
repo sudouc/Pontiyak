@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA2ED9831F1E44A400CE8D1B /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED9821F1E44A400CE8D1B /* FeedTableViewController.swift */; };
 		AA2ED9851F1E451000CE8D1B /* PingAroundMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED9841F1E451000CE8D1B /* PingAroundMe.swift */; };
+		AA2ED9871F1ECCA700CE8D1B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED9861F1ECCA700CE8D1B /* User.swift */; };
 		AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF461F1A260F003C5F3E /* IntroViewController.swift */; };
 		AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */; };
 		FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		AA2ED9821F1E44A400CE8D1B /* FeedTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		AA2ED9841F1E451000CE8D1B /* PingAroundMe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PingAroundMe.swift; sourceTree = "<group>"; };
+		AA2ED9861F1ECCA700CE8D1B /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		AA49CF461F1A260F003C5F3E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
 		FA959FA71F0C4D6600810F05 /* pontiyak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pontiyak.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +116,7 @@
 				FA959FAC1F0C4D6600810F05 /* ViewController.swift */,
 				AA49CF461F1A260F003C5F3E /* IntroViewController.swift */,
 				FA959FB01F0C4D6600810F05 /* Main.storyboard */,
+				AA2ED9861F1ECCA700CE8D1B /* User.swift */,
 				AA2ED9841F1E451000CE8D1B /* PingAroundMe.swift */,
 				AA2ED9821F1E44A400CE8D1B /* FeedTableViewController.swift */,
 				AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */,
@@ -296,6 +299,7 @@
 				FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */,
 				AA2ED9851F1E451000CE8D1B /* PingAroundMe.swift in Sources */,
 				AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */,
+				AA2ED9871F1ECCA700CE8D1B /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

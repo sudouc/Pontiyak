@@ -12,6 +12,8 @@ class ConfirmViewController:UIViewController {
 
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var nameView: UITextField!
+    
     var photo:UIImage?
     
     override func viewDidLoad() {
