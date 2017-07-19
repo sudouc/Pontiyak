@@ -12,16 +12,18 @@ import os.log
 class User: NSObject, NSCoding{
     //MARK: Properties
     var name: String
-    var photo: UIImage?
+    var photo: UIImage
+    var deviceID: UUID?
     
     //MARK: Types
     struct PropertyKey{
         static let name = "name"
         static let photo = "photo"
+        static let deviceID = "deviceID"
     }
     
     //MARK: Initalise
-    init? (name:String, photo:UIImage){
+    init? (name:String, photo:UIImage, deviceID:UUID){
         //Name must not be empty
         guard !name.isEmpty else{
             return nil
@@ -31,12 +33,14 @@ class User: NSObject, NSCoding{
         //Initalise Stored Properties
         self.name = name
         self.photo = photo
+        self.deviceID = deviceID
     }
     
     //MARK: NSCoding
     func encode (with aCoder:NSCoder){
         aCoder.encode(name, forKey: PropertyKey.name)
         aCoder.encode(photo, forKey: PropertyKey.photo)
+        aCoder.encode(deviceID, forKey: PropertyKey.deviceID)
     }
     
     required convenience init?(coder aDecoder: NSCoder) {
@@ -53,10 +57,12 @@ class User: NSObject, NSCoding{
         
         //Because photo is optional
         let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
+        
+        let deviceID = aDecoder.decodeObject(forKey: PropertyKey.deviceID) as? UUID
 
         
         //Must call designated initalizer.
-        self.init(name:name,photo:photo!)
+        self.init(name:name, photo:photo!, deviceID:deviceID!)
     }
     
     //Archiving paths
