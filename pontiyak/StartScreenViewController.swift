@@ -11,7 +11,7 @@ import UIKit
 class StartScreenViewController: UIViewController {
 
     //TODO Fix error
-    var user = User()
+    // var user = User()
         
         
     override func viewDidLoad() {
@@ -37,11 +37,11 @@ class StartScreenViewController: UIViewController {
     */
     
     //MARK: Private Functions
-    private func getUser()->Bool{
+    /* private func getUser()->Bool{
         
         user = NSKeyedUnarchiver.unarchiveObject(withFile: user.ArchiveURL.path) as? User
         
         return false
-    }
+    } */
 
 }

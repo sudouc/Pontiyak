@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="46C-v8-4Qc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ffo-f5-q5h">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.16"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -179,7 +179,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QF-d3-y8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3503.1999999999998" y="-960.2698650674663"/>
+            <point key="canvasLocation" x="-4804" y="-975"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Pg2-AZ-VYi">
+            <objects>
+                <navigationController id="ffo-f5-q5h" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="wIT-Yn-8wb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="46C-v8-4Qc" kind="relationship" relationship="rootViewController" id="eAd-sO-lHQ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="06h-Ge-x7D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3500" y="-976"/>
         </scene>
         <!--Welcome-->
         <scene sceneID="PYh-kl-Hvn">
@@ -247,7 +263,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Terms and Conditions"/>
                                 <connections>
-                                    <segue destination="5py-A3-pse" kind="presentation" id="rZy-N6-cvY"/>
+                                    <segue destination="5py-A3-pse" kind="show" id="w85-eo-lH1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,7 +283,7 @@
         <!--T&Cs-->
         <scene sceneID="REe-eW-IaP">
             <objects>
-                <viewController storyboardIdentifier="T&amp;Cs" title="T&amp;Cs" id="5py-A3-pse" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="T&amp;Cs" title="T&amp;Cs" id="5py-A3-pse" customClass="PrivacyViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Feg-Ir-xzy"/>
                         <viewControllerLayoutGuide type="bottom" id="jzm-ua-o1S"/>
@@ -276,49 +292,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9H7-97-DEU">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9H7-97-DEU">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Terms and Conditions" id="ZQI-xg-6JE"/>
                                 </items>
                             </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a8S-4K-EDy">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" scalesPageToFit="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKa-UD-fTu">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YUx-dB-Nf9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
-Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
-Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
-Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
-Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
-Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="YUx-dB-Nf9" firstAttribute="top" secondItem="a8S-4K-EDy" secondAttribute="top" id="6ME-ss-Vph"/>
-                                    <constraint firstItem="YUx-dB-Nf9" firstAttribute="leading" secondItem="a8S-4K-EDy" secondAttribute="leading" id="De8-J0-paZ"/>
-                                    <constraint firstItem="YUx-dB-Nf9" firstAttribute="centerY" secondItem="a8S-4K-EDy" secondAttribute="centerY" id="R8I-o8-taM"/>
-                                    <constraint firstItem="YUx-dB-Nf9" firstAttribute="centerX" secondItem="a8S-4K-EDy" secondAttribute="centerX" id="T9i-Xm-JxV"/>
-                                    <constraint firstAttribute="trailing" secondItem="YUx-dB-Nf9" secondAttribute="trailing" id="Tqk-VQ-Pg8"/>
-                                    <constraint firstAttribute="bottom" secondItem="YUx-dB-Nf9" secondAttribute="bottom" id="WLQ-eL-LO7"/>
-                                </constraints>
-                            </scrollView>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="bottom" secondItem="jzm-ua-o1S" secondAttribute="top" id="1YK-ZX-biQ"/>
-                            <constraint firstAttribute="trailing" secondItem="a8S-4K-EDy" secondAttribute="trailing" id="4R1-Ko-hWp"/>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="top" secondItem="9H7-97-DEU" secondAttribute="bottom" id="GJz-eI-weJ"/>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="leading" secondItem="9H7-97-DEU" secondAttribute="leading" id="IBu-Ei-yV7"/>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="trailing" secondItem="9H7-97-DEU" secondAttribute="trailing" id="NmK-ix-cBP"/>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="top" secondItem="vx0-Xb-Hb5" secondAttribute="top" constant="64" id="SbA-kZ-tYc"/>
-                            <constraint firstItem="a8S-4K-EDy" firstAttribute="leading" secondItem="vx0-Xb-Hb5" secondAttribute="leading" id="hHI-Qt-63n"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="DKa-UD-fTu" id="dEc-aX-oGd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFx-Zi-dlu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

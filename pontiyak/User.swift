@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class User: NSObject, NSCoding{
+class User: NSObject, NSCoding {
     //MARK: Properties
     var name: String
     var photo: UIImage
@@ -23,12 +23,11 @@ class User: NSObject, NSCoding{
     }
     
     //MARK: Initalise
-    init? (name:String, photo:UIImage, deviceID:UUID){
+    init? (name:String, photo:UIImage, deviceID:UUID) {
         //Name must not be empty
         guard !name.isEmpty else{
             return nil
         }
-        
         
         //Initalise Stored Properties
         self.name = name
