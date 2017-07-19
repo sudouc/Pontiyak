@@ -6,10 +6,12 @@
 //  Copyright © 2017 Sudo. All rights reserved.
 //
 
+//TODO Create landing page to determine if user exists
+
 import UIKit
 
 class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     
     
     
@@ -56,17 +58,19 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         }
         
         // Set photoImageView to display the selected image.
-        userImage = selectedImage
+        self.userImage = selectedImage
         
+        
+        self.performSegue( withIdentifier: "imagePresent", sender: self)
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
         
-        self.performSegue( withIdentifier: "customImage", sender: self)
-        
         // TODO Get this to work
-        let vc = ConfirmViewController()
-        self.present(vc, animated: true, completion: nil)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmView")
+        self.present(vc!, animated: true, completion: nil)
+        
+        
     }
     
     // MARK: - Navigation
@@ -77,9 +81,10 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         //         Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "customImage"{
+        if segue.identifier == "imagePresent"{
             let addImage = segue.destination as! ConfirmViewController
-            addImage.userImage = userImage
+            addImage.photo = self.userImage
+            
             
         }
     }

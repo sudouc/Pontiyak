@@ -1,29 +1,24 @@
 //
-//  ConfirmViewController.swift
+//  StartScreenViewController.swift
 //  pontiyak
 //
-//  Created by Stephen Mercer on 16/7/17.
+//  Created by Stephen Mercer on 19/7/17.
 //  Copyright © 2017 Sudo. All rights reserved.
 //
 
 import UIKit
 
-class ConfirmViewController:UIViewController {
+class StartScreenViewController: UIViewController {
 
-    
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var nameView: UITextField!
-    
-    var photo:UIImage?
-    
+    //TODO Fix error
+    var user = User()
+        
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        imageView.image = photo
+
         // Do any additional setup after loading the view.
-        
     }
-    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -40,5 +35,13 @@ class ConfirmViewController:UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    //MARK: Private Functions
+    private func getUser()->Bool{
+        
+        user = NSKeyedUnarchiver.unarchiveObject(withFile: user.ArchiveURL.path) as? User
+        
+        return false
+    }
 
 }
