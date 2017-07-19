@@ -55,9 +55,8 @@ class User: NSObject, NSCoding{
                 return nil
         }
         
-        //Because photo is optional
-        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         
+        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
         let deviceID = aDecoder.decodeObject(forKey: PropertyKey.deviceID) as? UUID
 
         
