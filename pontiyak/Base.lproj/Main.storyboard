@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="ffo-f5-q5h">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hLH-uc-G9b">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -176,6 +176,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="46C-v8-4Qc" kind="showDetail" identifier="signUp" action="showViewController:sender:" id="6YF-UQ-tih"/>
+                        <segue destination="EJh-NK-dvM" kind="showDetail" identifier="runApp" id="uWs-Gn-Irb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3QF-d3-y8e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -197,10 +201,10 @@
             </objects>
             <point key="canvasLocation" x="-3500" y="-976"/>
         </scene>
-        <!--Welcome-->
+        <!--WelcomeView-->
         <scene sceneID="PYh-kl-Hvn">
             <objects>
-                <viewController id="46C-v8-4Qc" customClass="IntroViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WelcomeView" title="WelcomeView" id="46C-v8-4Qc" customClass="IntroViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="sMg-TD-PVH"/>
                         <viewControllerLayoutGuide type="bottom" id="hhA-bg-Pgg"/>
@@ -372,7 +376,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="P8T-Qp-s0M">
             <objects>
-                <tabBarController id="EJh-NK-dvM" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="defaultView" id="EJh-NK-dvM" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="75t-xc-LGU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -395,4 +399,7 @@
         <image name="compass" width="24" height="28"/>
         <image name="news paper" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="h14-4N-hb5"/>
+    </inferredMetricsTieBreakers>
 </document>
