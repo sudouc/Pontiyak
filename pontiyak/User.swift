@@ -9,8 +9,7 @@
 import UIKit
 import os.log
 
-class User: NSObject, NSCoding{
-    
+class User: NSObject, NSCoding {
     //MARK: Properties
     var name:String
     var image:UIImage
@@ -22,7 +21,8 @@ class User: NSObject, NSCoding{
     }
     
     //MARK: Initalise
-    init? (name:String, image:UIImage){
+    init? (name:String, photo:UIImage, deviceID:UUID) {
+        //Name must not be empty
         guard !name.isEmpty else{
             return nil
         }

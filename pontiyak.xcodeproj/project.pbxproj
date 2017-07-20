@@ -15,6 +15,7 @@
 		AA2ED9911F1EF49E00CE8D1B /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED9901F1EF49E00CE8D1B /* StartScreenViewController.swift */; };
 		AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF461F1A260F003C5F3E /* IntroViewController.swift */; };
 		AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */; };
+		FA750E901F1F8DC9005828E3 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA750E8F1F1F8DC9005828E3 /* PrivacyViewController.swift */; };
 		FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */; };
 		FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAC1F0C4D6600810F05 /* ViewController.swift */; };
 		FA959FB21F0C4D6600810F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA959FB01F0C4D6600810F05 /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		AA2ED9901F1EF49E00CE8D1B /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 		AA49CF461F1A260F003C5F3E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		FA750E8F1F1F8DC9005828E3 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		FA959FA71F0C4D6600810F05 /* pontiyak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pontiyak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA959FAC1F0C4D6600810F05 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				FA959FB31F0C4D6600810F05 /* Assets.xcassets */,
 				FA959FB51F0C4D6600810F05 /* LaunchScreen.storyboard */,
 				FA959FB81F0C4D6600810F05 /* Info.plist */,
+				FA750E8F1F1F8DC9005828E3 /* PrivacyViewController.swift */,
 			);
 			path = pontiyak;
 			sourceTree = "<group>";
@@ -225,12 +228,12 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = Sudo;
 				TargetAttributes = {
 					FA959FA61F0C4D6600810F05 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 4HB58HMSH2;
+						DevelopmentTeam = JB3CR6UU8Z;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -302,6 +305,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA750E901F1F8DC9005828E3 /* PrivacyViewController.swift in Sources */,
 				AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */,
 				AA2ED9891F1ED1CA00CE8D1B /* FeedTableViewCell.swift in Sources */,
 				FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */,
@@ -376,7 +380,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -384,7 +390,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -426,7 +436,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -434,7 +446,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -463,11 +479,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4HB58HMSH2;
+				DEVELOPMENT_TEAM = JB3CR6UU8Z;
 				INFOPLIST_FILE = pontiyak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mercer.pontiyak;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudo.pontiyak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -477,11 +493,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4HB58HMSH2;
+				DEVELOPMENT_TEAM = JB3CR6UU8Z;
 				INFOPLIST_FILE = pontiyak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.mercer.pontiyak;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sudo.pontiyak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
