@@ -21,7 +21,7 @@ class User: NSObject, NSCoding {
     }
     
     //MARK: Initalise
-    init? (name:String, photo:UIImage, deviceID:UUID) {
+    init? (name:String, image:UIImage) {
         //Name must not be empty
         guard !name.isEmpty else{
             return nil

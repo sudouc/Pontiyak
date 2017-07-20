@@ -79,10 +79,6 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
         
-        // TODO Get this to work
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ConfirmView")
-        self.present(vc!, animated: true, completion: nil)
-        
         
     }
     
