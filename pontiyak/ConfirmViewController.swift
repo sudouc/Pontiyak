@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ConfirmViewController:UIViewController {
+class ConfirmViewController:UIViewController,UINavigationControllerDelegate {
 
     
     @IBOutlet weak var imageView: UIImageView!
@@ -19,9 +19,16 @@ class ConfirmViewController:UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        imageView.image = photo
         // Do any additional setup after loading the view.
+        imageView.image = photo
         
+        let rightButtonItem = UIBarButtonItem.init(
+            title: "Save",
+            style: .done,
+            target: self,
+            action: #selector(rightButtonAction(sender:))
+        )
+        self.navigationItem.rightBarButtonItem = rightButtonItem
     }
     
 
@@ -31,6 +38,9 @@ class ConfirmViewController:UIViewController {
     }
     
 
+    func rightButtonAction(sender:UIBarButtonItem){
+        
+    }
     /*
     // MARK: - Navigation
 

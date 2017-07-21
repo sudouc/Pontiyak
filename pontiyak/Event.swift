@@ -17,6 +17,7 @@ class Event: NSObject, NSCoding{
     var vendor:String
     var latlong:[Float]
     var backgroundImage:UIImage
+    var date: Date
     
     //MARK: Types
     struct keys{
@@ -25,10 +26,11 @@ class Event: NSObject, NSCoding{
         static let vendor = "vendor"
         static let backgroundImage = "backgroundImage"
         static let latlong = "latlong"
+        static let date = "date"
     }
     
     //MARK: Intialise
-    init? (title:String, location:String,vendor:String, latlong:[Float],backgroundImage:UIImage){
+    init? (title:String, location:String,vendor:String, latlong:[Float],backgroundImage:UIImage, date:Date){
         //No value is allowed to be empty
         guard !title.isEmpty else{
             return nil
@@ -49,6 +51,7 @@ class Event: NSObject, NSCoding{
         self.vendor = vendor
         self.backgroundImage = backgroundImage
         self.latlong = latlong
+        self.date = date
     }
     
     //MARK: NSCoding
@@ -58,6 +61,7 @@ class Event: NSObject, NSCoding{
         aCoder.encode(vendor, forKey: keys.vendor)
         aCoder.encode(backgroundImage, forKey: keys.backgroundImage)
         aCoder.encode(latlong, forKey: keys.latlong)
+        aCoder.encode(date, forKey: keys.date)
     }
     
     required convenience init?(coder aDecoder:NSCoder){
@@ -107,9 +111,19 @@ class Event: NSObject, NSCoding{
                 }
                 return nil
         }
+        guard let date = aDecoder.decodeObject(forKey: keys.date) as? Date
+            else{
+                if #available(iOS 10.0, *){
+                    os_log("Unable to decode the date for an Event Object.",log:.default, type:.debug)
+                }
+                else{
+                    //Fallback on earlier versions
+                }
+                return nil
+        }
         
         //Must call desginated initaliser
-        self.init(title:title,location:location, vendor:vendor, latlong:latlong,backgroundImage:backgroundImage)
+        self.init(title:title,location:location, vendor:vendor, latlong:latlong,backgroundImage:backgroundImage, date:date)
     }
     
     //Archiving paths

@@ -11,19 +11,17 @@ import os.log
 
 class User: NSObject, NSCoding {
     //MARK: Properties
-    var name: String
-    var photo: UIImage
-    var deviceID: UUID?
+    var name:String
+    var image:UIImage
     
     //MARK: Types
-    struct PropertyKey{
+    struct keys{
         static let name = "name"
-        static let photo = "photo"
-        static let deviceID = "deviceID"
+        static let image = "image"
     }
     
     //MARK: Initalise
-    init? (name:String, photo:UIImage, deviceID:UUID) {
+    init? (name:String, image:UIImage) {
         //Name must not be empty
         guard !name.isEmpty else{
             return nil
@@ -31,36 +29,37 @@ class User: NSObject, NSCoding {
         
         //Initalise Stored Properties
         self.name = name
-        self.photo = photo
-        self.deviceID = deviceID
+        self.image = image
+        
     }
     
     //MARK: NSCoding
-    func encode (with aCoder:NSCoder){
-        aCoder.encode(name, forKey: PropertyKey.name)
-        aCoder.encode(photo, forKey: PropertyKey.photo)
-        aCoder.encode(deviceID, forKey: PropertyKey.deviceID)
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name,forKey:keys.name)
+        aCoder.encode(image,forKey:keys.image)
     }
     
-    required convenience init?(coder aDecoder: NSCoder) {
-        //The name is required. If we cannot decode a name string, the initalizer should fail
-        guard let name = aDecoder.decodeObject(forKey: PropertyKey.name) as? String
+    required convenience init?(coder aDecoder:NSCoder){
+        guard let name = aDecoder.decodeObject(forKey: keys.name) as? String
             else{
-                if #available(iOS 10.0, *) {
-                    os_log("Unable to decode the name for a User Object.",log:OSLog.default, type:.debug)
-                } else {
-                    // Fallback on earlier versions
+                if #available(iOS 10.0, *){
+                    os_log("Unable to decode the name for a User Object",log: .default,type:.debug)
+                }else{
+                    //Fallback to earlier versions
                 }
                 return nil
         }
         
+        guard let image = aDecoder.decodeObject(forKey:keys.image) as? UIImage else {
+            if #available(iOS 10.0, *){
+                os_log("Unable to decode the image for a User Object",log:.default,type:.debug)
+            }else{
+                //Fallback to earlier versions
+            }
+            return nil
+        }
         
-        let photo = aDecoder.decodeObject(forKey: PropertyKey.photo) as? UIImage
-        let deviceID = aDecoder.decodeObject(forKey: PropertyKey.deviceID) as? UUID
-
-        
-        //Must call designated initalizer.
-        self.init(name:name, photo:photo!, deviceID:deviceID!)
+        self.init(name:name, image:image)
     }
     
     //Archiving paths
