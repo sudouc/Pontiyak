@@ -13,8 +13,6 @@ import UIKit
 class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    
-    var user:User?
     var userImage: UIImage!
     
     
@@ -22,11 +20,6 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         super.viewDidLoad()
         
         self.navigationController?.setNavigationBarHidden(true, animated: false)
-        
-        if getUser(){
-            self.performSegue( withIdentifier: "mainSegue", sender: self)
-            
-        }
         
         // Do any additional setup after loading the view.
     }
@@ -106,24 +99,11 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
             addImage.photo = self.userImage
             self.navigationController?.pushViewController(addImage, animated: true)
             break
-        case "mainSegue":
-            
-            break
         case "tacs":
             
             break
         default:
             fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
-        }
-    }
-    
-    //Private Functions
-    func getUser()->Bool{
-        user = NSKeyedUnarchiver.unarchiveObject(withFile: User.ArchiveURL.path) as? User
-        if user == nil{
-            return false
-        } else{
-            return true
         }
     }
     
