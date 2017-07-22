@@ -279,10 +279,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUb-uM-uLV">
-                                <rect key="frame" x="0.0" y="407" width="375" height="216"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -292,7 +288,6 @@
                     <connections>
                         <outlet property="imageView" destination="PsA-QK-nLb" id="W3d-Wa-Mji"/>
                         <outlet property="nameView" destination="dSJ-1Y-keN" id="SY1-k9-kET"/>
-                        <outlet property="picker" destination="yUb-uM-uLV" id="fsD-Pg-T3J"/>
                         <segue destination="EJh-NK-dvM" kind="show" identifier="mainSegue" id="YMf-Kz-Q3d"/>
                     </connections>
                 </viewController>
