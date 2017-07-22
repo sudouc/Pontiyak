@@ -57,7 +57,7 @@ class startViewController: UIViewController {
         }
     }
     private func getOnlineUser() -> Bool{
-        
+        //TODO Add code to check user from API
         return true
     }
     

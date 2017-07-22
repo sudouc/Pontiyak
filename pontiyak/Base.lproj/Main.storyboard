@@ -279,6 +279,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yUb-uM-uLV">
+                                <rect key="frame" x="0.0" y="407" width="375" height="216"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -288,6 +292,7 @@
                     <connections>
                         <outlet property="imageView" destination="PsA-QK-nLb" id="W3d-Wa-Mji"/>
                         <outlet property="nameView" destination="dSJ-1Y-keN" id="SY1-k9-kET"/>
+                        <outlet property="picker" destination="yUb-uM-uLV" id="fsD-Pg-T3J"/>
                         <segue destination="EJh-NK-dvM" kind="show" identifier="mainSegue" id="YMf-Kz-Q3d"/>
                     </connections>
                 </viewController>
@@ -329,7 +334,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gn-9a-hrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6360" y="-89"/>
+            <point key="canvasLocation" x="-4876" y="-1906"/>
         </scene>
         <!--Start View-->
         <scene sceneID="hOh-zC-pW0">
@@ -359,7 +364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QQJ-r6-qat" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4900" y="-117"/>
+            <point key="canvasLocation" x="-3415" y="-1934"/>
         </scene>
     </scenes>
     <resources>
@@ -368,6 +373,6 @@
         <image name="news paper" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YR8-ek-gza"/>
+        <segue reference="YMf-Kz-Q3d"/>
     </inferredMetricsTieBreakers>
 </document>

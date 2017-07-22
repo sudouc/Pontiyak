@@ -9,11 +9,12 @@
 import UIKit
 import os.log
 
-class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
+class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITextFieldDelegate, UIPickerViewDelegate {
     
     
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameView: UITextField!
+    @IBOutlet weak var picker: UIPickerView!
     
     var save:UIBarButtonItem?
     var photo:UIImage?
@@ -70,6 +71,8 @@ class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITe
         updateSaveButtonState()
     }
     
+    //MARK: UIPickerViewDelegate
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -90,8 +93,9 @@ class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITe
     @objc private func saveUserData(sender:UIBarButtonItem){
         let photo = imageView.image
         let name = nameView.text ?? ""
+        let uni = "Test"
     
-        saveUser(user: User(name: name, image: photo!)!)
+        saveUser(user: User(name: name, image: photo!, uni:uni)!)
         
         self.performSegue( withIdentifier: "mainSegue", sender: self)
     }

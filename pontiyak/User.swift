@@ -13,15 +13,17 @@ class User: NSObject, NSCoding {
     //MARK: Properties
     var name:String
     var image:UIImage
+    var uni:String
     
     //MARK: Types
     struct keys{
         static let name = "name"
         static let image = "image"
+        static let uni = "uni"
     }
     
     //MARK: Initalise
-    init? (name:String, image:UIImage) {
+    init? (name:String, image:UIImage, uni:String) {
         //Name must not be empty
         guard !name.isEmpty else{
             return nil
@@ -30,6 +32,7 @@ class User: NSObject, NSCoding {
         //Initalise Stored Properties
         self.name = name
         self.image = image
+        self.uni = uni
         
     }
     
@@ -37,6 +40,7 @@ class User: NSObject, NSCoding {
     func encode(with aCoder: NSCoder) {
         aCoder.encode(name,forKey:keys.name)
         aCoder.encode(image,forKey:keys.image)
+        aCoder.encode(uni, forKey:keys.uni)
     }
     
     required convenience init?(coder aDecoder:NSCoder){
@@ -58,8 +62,16 @@ class User: NSObject, NSCoding {
             }
             return nil
         }
+        guard let uni = aDecoder.decodeObject(forKey:keys.uni) as? String else {
+            if #available(iOS 10.0, *){
+                os_log("Unable to decode the uni for a User Object",log:.default,type:.debug)
+            }else{
+                //Fallback to earlier versions
+            }
+            return nil
+        }
         
-        self.init(name:name, image:image)
+        self.init(name:name, image:image, uni:uni)
     }
     
     //Archiving paths
