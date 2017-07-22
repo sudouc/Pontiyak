@@ -14,6 +14,9 @@ import CoreLocation
 class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
+    let uc = CLLocationCoordinate2D(latitude: -35.2379301, longitude: -149.0831383)
+    
+    var events = [Event]()
     
     @IBOutlet weak var map: MKMapView!
     var myLocation:CLLocationCoordinate2D?
@@ -41,6 +44,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         if let coor = map.userLocation.location?.coordinate{
             map.setCenter(coor, animated: true)
         }
+        map.centerCoordinate = uc
         
         addLongPressGesture()
     }
@@ -117,7 +121,38 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     static var enable:Bool = true
     @IBAction func getMyLocation(_ sender: UIButton) {
         
-    }   
+    }
+    
+    //MARK: Private Functions
+    private func loadSampleEvents(){ //Create sample events for testing
+        let sampleImage1 = #imageLiteral(resourceName: "ucArt")
+        let sampleImage2 = #imageLiteral(resourceName: "ucPark")
+        let sampleImage3 = #imageLiteral(resourceName: "ucInspire")
+        let sampleImage4 = #imageLiteral(resourceName: "ucUCLodge")
+        
+        let dateFormater = DateFormatter()
+        dateFormater.dateFormat = "yyyy/MM/dd"
+        
+        guard let event1 = Event(title: "Art Expo", location: "Refractory", vendor: "UC Art UG", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage1, date: Date())
+            else{
+                fatalError("Unable to instantiate event1")
+        }
+        
+        guard let event2 = Event(title: "Study Sesh", location: "UC Park", vendor: "UC Life!", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage2, date: Date())
+            else{
+                fatalError("Unable to instantiate event2")
+        }
+        guard let event3 = Event(title: "Inspriation Function", location: "Inspire Center", vendor: "ESTEM", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage3, date: Date())
+            else{
+                fatalError("Unable to instantiate event3")
+        }
+        guard let event4 = Event(title: "Movie Night", location: "UC Lodge", vendor: "UniLodge", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage4, date: Date())
+            else{
+                fatalError("Unable to instantiate event4")
+        }
+        
+        events += [event1,event2,event3,event4]
+    }
     
 }
 

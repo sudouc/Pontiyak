@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITextFieldDelegate, UIPickerViewDelegate {
+class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITextFieldDelegate {
     
     
     @IBOutlet weak var imageView: UIImageView!
