@@ -22,7 +22,7 @@ class TabViewController: UITabBarController {
         if Reachability.isConnectedToNetwork(){
             events = getEventsOnline()!
         }
-        
+        loadSampleEvents()
         addNewEvents(localEvents:getSavedEvents()!,onlineEvents:events)
         
         saveEventstoLocal()
@@ -103,7 +103,9 @@ class TabViewController: UITabBarController {
     
     private func addNewEvents(localEvents:[Event],onlineEvents:[Event]){
         //Checks for new events and cancels any duplicates
-        for each in localEvents{
+        let temp = localEvents + events
+        
+        for each in temp{
             eventsDict[each.eventID] = each
         }
         
