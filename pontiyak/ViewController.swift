@@ -141,7 +141,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
                 fatalError("Unable to instantiate event1")
         }
         
-        guard let event2 = Event(title: "Study Sesh", location: "UC Park", vendor: "UC Life!", latlong: [-35.2375,149.0839], backgroundImage: sampleImage2, date: Date())
+        guard let event2 = Event(title: "Study Sesh", location: "UC Concourse", vendor: "UC Life!", latlong: [-35.2375,149.0839], backgroundImage: sampleImage2, date: Date())
             else{
                 fatalError("Unable to instantiate event2")
         }
