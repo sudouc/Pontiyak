@@ -36,7 +36,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         }
         
         map.delegate = self
-        map.mapType = .standard
+        map.mapType = .satellite
         map.isZoomEnabled = true
         map.isScrollEnabled = true
         map.showsUserLocation = true
@@ -45,6 +45,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
             map.setCenter(coor, animated: true)
         }
         map.centerCoordinate = uc
+        
+        loadSampleEvents()
+        addEventsToMap()
         
         addLongPressGesture()
     }
@@ -133,20 +136,20 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "yyyy/MM/dd"
         
-        guard let event1 = Event(title: "Art Expo", location: "Refractory", vendor: "UC Art UG", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage1, date: Date())
+        guard let event1 = Event(title: "Art Expo", location: "Refractory", vendor: "UC Art UG", latlong: [-35.2385,149.0844], backgroundImage: sampleImage1, date: Date())
             else{
                 fatalError("Unable to instantiate event1")
         }
         
-        guard let event2 = Event(title: "Study Sesh", location: "UC Park", vendor: "UC Life!", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage2, date: Date())
+        guard let event2 = Event(title: "Study Sesh", location: "UC Park", vendor: "UC Life!", latlong: [-35.2375,149.0839], backgroundImage: sampleImage2, date: Date())
             else{
                 fatalError("Unable to instantiate event2")
         }
-        guard let event3 = Event(title: "Inspriation Function", location: "Inspire Center", vendor: "ESTEM", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage3, date: Date())
+        guard let event3 = Event(title: "Inspriation Function", location: "Inspire Center", vendor: "ESTEM", latlong: [-35.2382,149.0822], backgroundImage: sampleImage3, date: Date())
             else{
                 fatalError("Unable to instantiate event3")
         }
-        guard let event4 = Event(title: "Movie Night", location: "UC Lodge", vendor: "UniLodge", latlong: [35.2376838,149.0844086], backgroundImage: sampleImage4, date: Date())
+        guard let event4 = Event(title: "Movie Night", location: "UC Lodge", vendor: "UniLodge", latlong: [-35.2379,149.0828], backgroundImage: sampleImage4, date: Date())
             else{
                 fatalError("Unable to instantiate event4")
         }
@@ -154,6 +157,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         events += [event1,event2,event3,event4]
     }
     
+    private func addEventsToMap(){
+        //Map annotation
+        for i in events{
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(i.latlong[0]),CLLocationDegrees(i.latlong[1]))
+        annotation.title = i.title
+        annotation.subtitle = i.location
+        map.addAnnotation(annotation)
+        }
+    }
 }
 
 

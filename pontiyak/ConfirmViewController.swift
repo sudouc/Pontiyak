@@ -93,9 +93,8 @@ class ConfirmViewController:UIViewController,UINavigationControllerDelegate,UITe
     @objc private func saveUserData(sender:UIBarButtonItem){
         let photo = imageView.image
         let name = nameView.text ?? ""
-        let uni = "Test"
     
-        saveUser(user: User(name: name, image: photo!, uni:uni)!)
+        saveUser(user: User(name: name, image: photo!)!)
         
         self.performSegue( withIdentifier: "mainSegue", sender: self)
     }
