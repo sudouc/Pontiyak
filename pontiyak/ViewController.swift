@@ -46,7 +46,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         }
         map.centerCoordinate = uc
         
-        loadSampleEvents()
+        loadSavedEvents()
         addEventsToMap()
         
         addLongPressGesture()
@@ -127,34 +127,8 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     }
     
     //MARK: Private Functions
-    private func loadSampleEvents(){ //Create sample events for testing
-        let sampleImage1 = #imageLiteral(resourceName: "ucArt")
-        let sampleImage2 = #imageLiteral(resourceName: "ucPark")
-        let sampleImage3 = #imageLiteral(resourceName: "ucInspire")
-        let sampleImage4 = #imageLiteral(resourceName: "ucUCLodge")
+    private func loadSavedEvents(){
         
-        let dateFormater = DateFormatter()
-        dateFormater.dateFormat = "yyyy/MM/dd"
-        
-        guard let event1 = Event(title: "Art Expo", location: "Refractory", vendor: "UC Art UG", latlong: [-35.2385,149.0844], backgroundImage: sampleImage1, date: Date())
-            else{
-                fatalError("Unable to instantiate event1")
-        }
-        
-        guard let event2 = Event(title: "Study Sesh", location: "UC Concourse", vendor: "UC Life!", latlong: [-35.2375,149.0839], backgroundImage: sampleImage2, date: Date())
-            else{
-                fatalError("Unable to instantiate event2")
-        }
-        guard let event3 = Event(title: "Inspriation Function", location: "Inspire Center", vendor: "ESTEM", latlong: [-35.2382,149.0822], backgroundImage: sampleImage3, date: Date())
-            else{
-                fatalError("Unable to instantiate event3")
-        }
-        guard let event4 = Event(title: "Movie Night", location: "UC Lodge", vendor: "UniLodge", latlong: [-35.2379,149.0828], backgroundImage: sampleImage4, date: Date())
-            else{
-                fatalError("Unable to instantiate event4")
-        }
-        
-        events += [event1,event2,event3,event4]
     }
     
     private func addEventsToMap(){
