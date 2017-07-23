@@ -10,12 +10,13 @@ import UIKit
 import os.log
 
 class TabViewController: UITabBarController {
-
+    
     var events = [Event]()
+    var eventsDict: [Int: Event] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         if Reachability.isConnectedToNetwork(){
@@ -24,25 +25,25 @@ class TabViewController: UITabBarController {
         
         addNewEvents(localEvents:getSavedEvents()!,onlineEvents:events)
         
-        
+        saveEventstoLocal()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
     //MARK: Private Functions
     private func getEventsOnline() -> [Event]?{
         //Add API fucntions here
@@ -51,6 +52,7 @@ class TabViewController: UITabBarController {
     }
     
     private func getSavedEvents() -> [Event]?{
+        
         return NSKeyedUnarchiver.unarchiveObject(withFile: Event.ArchiveURL.path) as? [Event]
     }
     
@@ -100,6 +102,14 @@ class TabViewController: UITabBarController {
     }
     
     private func addNewEvents(localEvents:[Event],onlineEvents:[Event]){
+        //Checks for new events and cancels any duplicates
+        for each in localEvents{
+            eventsDict[each.eventID] = each
+        }
+        
+        for each in onlineEvents{
+            eventsDict[each.eventID] = each
+        }
         
     }
 }
