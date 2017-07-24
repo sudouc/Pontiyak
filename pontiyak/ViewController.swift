@@ -14,6 +14,9 @@ import CoreLocation
 class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
+    let uc = CLLocationCoordinate2D(latitude: -35.2379301, longitude: -149.0831383)
+    
+    var events = [Event]()
     
     @IBOutlet weak var map: MKMapView!
     var myLocation:CLLocationCoordinate2D?
@@ -33,7 +36,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         }
         
         map.delegate = self
-        map.mapType = .standard
+        map.mapType = .satellite
         map.isZoomEnabled = true
         map.isScrollEnabled = true
         map.showsUserLocation = true
@@ -41,6 +44,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         if let coor = map.userLocation.location?.coordinate{
             map.setCenter(coor, animated: true)
         }
+        map.centerCoordinate = uc
+        
+        loadSavedEvents()
+        addEventsToMap()
         
         addLongPressGesture()
     }
@@ -117,8 +124,23 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     static var enable:Bool = true
     @IBAction func getMyLocation(_ sender: UIButton) {
         
-    }   
+    }
     
+    //MARK: Private Functions
+    private func loadSavedEvents(){
+        
+    }
+    
+    private func addEventsToMap(){
+        //Map annotation
+        for i in events{
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(i.latlong[0]),CLLocationDegrees(i.latlong[1]))
+        annotation.title = i.title
+        annotation.subtitle = i.location
+        map.addAnnotation(annotation)
+        }
+    }
 }
 
 

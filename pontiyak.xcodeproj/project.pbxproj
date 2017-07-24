@@ -14,6 +14,9 @@
 		AA2ED98F1F1ED56000CE8D1B /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2ED98E1F1ED56000CE8D1B /* Event.swift */; };
 		AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF461F1A260F003C5F3E /* IntroViewController.swift */; };
 		AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */; };
+		AA5800851F23209D008C6607 /* startViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5800841F23209D008C6607 /* startViewController.swift */; };
+		AA7A65221F237E80002221E6 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA7A65211F237E80002221E6 /* Reachability.swift */; };
+		AA90795B1F24A5C900275390 /* TabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA90795A1F24A5C900275390 /* TabViewController.swift */; };
 		FA750E901F1F8DC9005828E3 /* PrivacyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA750E8F1F1F8DC9005828E3 /* PrivacyViewController.swift */; };
 		FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */; };
 		FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA959FAC1F0C4D6600810F05 /* ViewController.swift */; };
@@ -50,6 +53,9 @@
 		AA2ED98E1F1ED56000CE8D1B /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		AA49CF461F1A260F003C5F3E /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmViewController.swift; sourceTree = "<group>"; };
+		AA5800841F23209D008C6607 /* startViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = startViewController.swift; sourceTree = "<group>"; };
+		AA7A65211F237E80002221E6 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		AA90795A1F24A5C900275390 /* TabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabViewController.swift; sourceTree = "<group>"; };
 		FA750E8F1F1F8DC9005828E3 /* PrivacyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyViewController.swift; sourceTree = "<group>"; };
 		FA959FA71F0C4D6600810F05 /* pontiyak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pontiyak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -120,10 +126,13 @@
 			children = (
 				AA2ED98C1F1ED4CF00CE8D1B /* FeedTableViewController.swift */,
 				FA959FB01F0C4D6600810F05 /* Main.storyboard */,
+				AA5800841F23209D008C6607 /* startViewController.swift */,
+				AA7A65211F237E80002221E6 /* Reachability.swift */,
 				AA2ED98E1F1ED56000CE8D1B /* Event.swift */,
 				AA2ED9861F1ECCA700CE8D1B /* User.swift */,
 				FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */,
 				FA959FAC1F0C4D6600810F05 /* ViewController.swift */,
+				AA90795A1F24A5C900275390 /* TabViewController.swift */,
 				AA49CF461F1A260F003C5F3E /* IntroViewController.swift */,
 				AA2ED9881F1ED1CA00CE8D1B /* FeedTableViewCell.swift */,
 				AA2ED9841F1E451000CE8D1B /* PingAroundMe.swift */,
@@ -304,11 +313,14 @@
 			files = (
 				FA750E901F1F8DC9005828E3 /* PrivacyViewController.swift in Sources */,
 				AA49CF471F1A260F003C5F3E /* IntroViewController.swift in Sources */,
+				AA7A65221F237E80002221E6 /* Reachability.swift in Sources */,
 				AA2ED9891F1ED1CA00CE8D1B /* FeedTableViewCell.swift in Sources */,
+				AA90795B1F24A5C900275390 /* TabViewController.swift in Sources */,
 				FA959FAD1F0C4D6600810F05 /* ViewController.swift in Sources */,
 				AA2ED98D1F1ED4CF00CE8D1B /* FeedTableViewController.swift in Sources */,
 				FA959FAB1F0C4D6600810F05 /* AppDelegate.swift in Sources */,
 				AA2ED9851F1E451000CE8D1B /* PingAroundMe.swift in Sources */,
+				AA5800851F23209D008C6607 /* startViewController.swift in Sources */,
 				AA2ED98F1F1ED56000CE8D1B /* Event.swift in Sources */,
 				AA49CF491F1B87C8003C5F3E /* ConfirmViewController.swift in Sources */,
 				AA2ED9871F1ECCA700CE8D1B /* User.swift in Sources */,

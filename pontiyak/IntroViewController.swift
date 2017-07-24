@@ -13,9 +13,8 @@ import UIKit
 class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    
-    
     var userImage: UIImage!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +48,7 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         photoCapture.sourceType = .camera
         photoCapture.cameraCaptureMode = .photo
         photoCapture.cameraDevice = .front
+        photoCapture.allowsEditing = true
         
         photoCapture.delegate = self
         present(photoCapture, animated: true,completion: nil)
@@ -79,22 +79,31 @@ class IntroViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
         
-        
     }
     
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //super.prepare(for: segue, sender: sender)
         
-        //         Get the new view controller using segue.destinationViewController.
+        // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "imagePresent"{
-            let addImage = segue.destination as! ConfirmViewController
+        switch(segue.identifier ?? ""){
+        case "imagePresent":
+            guard let addImage = segue.destination as? ConfirmViewController
+                else{
+                    fatalError("Unexpected destination: \(segue.destination)")
+            }
             addImage.photo = self.userImage
+            self.navigationController?.pushViewController(addImage, animated: true)
+            break
+        case "tacs":
             
-            
+            break
+        default:
+            fatalError("Unexpected Segue Identifier: \(String(describing: segue.identifier))")
         }
     }
     

@@ -12,6 +12,7 @@ import os.log
 class Event: NSObject, NSCoding{
     
     //MARK: Properties
+    var eventID: Int
     var title:String
     var location:String
     var vendor:String
@@ -21,6 +22,7 @@ class Event: NSObject, NSCoding{
     
     //MARK: Types
     struct keys{
+        static let eventID = "eventID"
         static let title = "title"
         static let location = "location"
         static let vendor = "vendor"
@@ -30,7 +32,7 @@ class Event: NSObject, NSCoding{
     }
     
     //MARK: Intialise
-    init? (title:String, location:String,vendor:String, latlong:[Float],backgroundImage:UIImage, date:Date){
+    init? (eventID:Int, title:String, location:String,vendor:String, latlong:[Float],backgroundImage:UIImage, date:Date){
         //No value is allowed to be empty
         guard !title.isEmpty else{
             return nil
@@ -46,6 +48,7 @@ class Event: NSObject, NSCoding{
         }
         
         //Intialise Stored Properties
+        self.eventID = eventID
         self.title = title
         self.location = location
         self.vendor = vendor
@@ -56,6 +59,7 @@ class Event: NSObject, NSCoding{
     
     //MARK: NSCoding
     func encode (with aCoder:NSCoder){
+        aCoder.encode(eventID,forKey:keys.eventID)
         aCoder.encode(title, forKey: keys.title)
         aCoder.encode(location, forKey: keys.location)
         aCoder.encode(vendor, forKey: keys.vendor)
@@ -66,6 +70,15 @@ class Event: NSObject, NSCoding{
     
     required convenience init?(coder aDecoder:NSCoder){
         //Everything is required
+        guard let eventID = aDecoder.decodeObject(forKey:keys.eventID) as? Int
+            else{
+                if #available(iOS 10.0, *) {
+                    os_log("Unable to decode the eventID for a Event Object.",log:OSLog.default, type:.debug)
+                } else {
+                    // Fallback on earlier versions
+                }
+                return nil
+        }
         guard let title = aDecoder.decodeObject(forKey: keys.title) as? String
             else{
                 if #available(iOS 10.0, *) {
@@ -123,7 +136,7 @@ class Event: NSObject, NSCoding{
         }
         
         //Must call desginated initaliser
-        self.init(title:title,location:location, vendor:vendor, latlong:latlong,backgroundImage:backgroundImage, date:date)
+        self.init(eventID:eventID, title:title,location:location, vendor:vendor, latlong:latlong,backgroundImage:backgroundImage, date:date)
     }
     
     //Archiving paths
