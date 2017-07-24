@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController, UITabBarControllerDelegate {
     
     var events = [Event]()
     var eventsDict: [Int: Event] = [:]
@@ -20,10 +20,16 @@ class TabViewController: UITabBarController {
         // Do any additional setup after loading the view.
         
         if Reachability.isConnectedToNetwork(){
-            events = getEventsOnline()!
+//            events = getEventsOnline()!
         }
         loadSampleEvents()
-        addNewEvents(localEvents:getSavedEvents()!,onlineEvents:events)
+        
+        SharedData.sharedEvents = events
+        
+        
+//        addNewEvents(localEvents: events)
+        
+        //addEventsToMap()
         
         saveEventstoLocal()
     }
@@ -49,6 +55,7 @@ class TabViewController: UITabBarController {
         //Add API fucntions here
         
         return nil
+        
     }
     
     private func getSavedEvents() -> [Event]?{
@@ -101,17 +108,17 @@ class TabViewController: UITabBarController {
         events += [event1,event2,event3,event4]
     }
     
-    private func addNewEvents(localEvents:[Event],onlineEvents:[Event]){
+    private func addNewEvents(localEvents:[Event]){
         //Checks for new events and cancels any duplicates
-        let temp = localEvents + events
+        let temp = localEvents
         
         for each in temp{
             eventsDict[each.eventID] = each
         }
         
-        for each in onlineEvents{
-            eventsDict[each.eventID] = each
-        }
+        //        for each in onlineEvents!{
+        //            eventsDict[each.eventID] = each
+        //        }
         
     }
 }

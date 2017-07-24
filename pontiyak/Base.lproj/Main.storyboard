@@ -308,10 +308,10 @@
             </objects>
             <point key="canvasLocation" x="-1935.2" y="-1654.7226386806599"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="P8T-Qp-s0M">
             <objects>
-                <tabBarController storyboardIdentifier="defaultView" id="EJh-NK-dvM" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="defaultView" id="EJh-NK-dvM" customClass="TabViewController" customModule="pontiyak" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" id="75t-xc-LGU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
