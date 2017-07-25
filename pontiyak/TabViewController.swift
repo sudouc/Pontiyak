@@ -20,7 +20,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         
         if Reachability.isConnectedToNetwork(){
-//            events = getEventsOnline()!
+            events = getEventsOnline()!
         }
         loadSampleEvents()
         
@@ -52,10 +52,27 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     
     //MARK: Private Functions
     private func getEventsOnline() -> [Event]?{
-        //Add API fucntions here
+        let url = URL(string: "https://api.sudo.org.au/api/pontiyak/events/")!
+        let request = URLRequest(url: url)
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response, let data = data {
+                print(response)
+                print(String(data: data, encoding: .utf8)!)
+                self.convertJSONData(data: data)
+            } else {
+                print(error!)
+            }
+        }
         
-        return nil
+        task.resume()
         
+        return []
+        
+    }
+    
+    private func convertJSONData(data:Data){
+        print("\(data)")
     }
     
     private func getSavedEvents() -> [Event]?{
