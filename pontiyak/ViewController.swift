@@ -46,7 +46,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         }
         map.centerCoordinate = uc
         
-        loadSavedEvents()
+        events = SharedData.sharedEvents
         addEventsToMap()
         
         addLongPressGesture()
@@ -126,19 +126,16 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         
     }
     
-    //MARK: Private Functions
-    private func loadSavedEvents(){
-        
-    }
-    
-    private func addEventsToMap(){
+    func addEventsToMap(){
         //Map annotation
+        print("Function Run")
+        
         for i in events{
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(i.latlong[0]),CLLocationDegrees(i.latlong[1]))
-        annotation.title = i.title
-        annotation.subtitle = i.location
-        map.addAnnotation(annotation)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = CLLocationCoordinate2DMake(CLLocationDegrees(i.latlong[0]),CLLocationDegrees(i.latlong[1]))
+            annotation.title = i.title
+            annotation.subtitle = i.location
+            map.addAnnotation(annotation)
         }
     }
 }

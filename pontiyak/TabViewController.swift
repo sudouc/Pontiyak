@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class TabViewController: UITabBarController {
+class TabViewController: UITabBarController, UITabBarControllerDelegate {
     
     var events = [Event]()
     var eventsDict: [Int: Event] = [:]
@@ -23,7 +23,13 @@ class TabViewController: UITabBarController {
             events = getEventsOnline()!
         }
         loadSampleEvents()
-        addNewEvents(localEvents:getSavedEvents()!,onlineEvents:events)
+        
+        SharedData.sharedEvents = events
+        
+        
+//        addNewEvents(localEvents: events)
+        
+        //addEventsToMap()
         
         saveEventstoLocal()
     }
@@ -46,9 +52,27 @@ class TabViewController: UITabBarController {
     
     //MARK: Private Functions
     private func getEventsOnline() -> [Event]?{
-        //Add API fucntions here
+        let url = URL(string: "https://api.sudo.org.au/api/pontiyak/events/")!
+        let request = URLRequest(url: url)
+
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            if let response = response, let data = data {
+                print(response)
+                print(String(data: data, encoding: .utf8)!)
+                self.convertJSONData(data: data)
+            } else {
+                print(error!)
+            }
+        }
         
-        return nil
+        task.resume()
+        
+        return []
+        
+    }
+    
+    private func convertJSONData(data:Data){
+        print("\(data)")
     }
     
     private func getSavedEvents() -> [Event]?{
@@ -101,17 +125,17 @@ class TabViewController: UITabBarController {
         events += [event1,event2,event3,event4]
     }
     
-    private func addNewEvents(localEvents:[Event],onlineEvents:[Event]){
+    private func addNewEvents(localEvents:[Event]){
         //Checks for new events and cancels any duplicates
-        let temp = localEvents + events
+        let temp = localEvents
         
         for each in temp{
             eventsDict[each.eventID] = each
         }
         
-        for each in onlineEvents{
-            eventsDict[each.eventID] = each
-        }
+        //        for each in onlineEvents!{
+        //            eventsDict[each.eventID] = each
+        //        }
         
     }
 }

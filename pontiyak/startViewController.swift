@@ -73,7 +73,7 @@ class startViewController: UIViewController {
                 }
             }
             else{
-                alert(message: "Internet connection is required on first run.", title: "No Internet Connection")
+                alert(message: "Internet connection is required on first run.", title: "No Internet Connection Detected")
             }
         }
     }
