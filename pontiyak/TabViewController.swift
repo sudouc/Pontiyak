@@ -27,7 +27,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         SharedData.sharedEvents = events
         
         
-//        addNewEvents(localEvents: events)
+        //        addNewEvents(localEvents: events)
         
         //addEventsToMap()
         
@@ -64,44 +64,37 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
                     let eventID:Int? = (jsonEvent as AnyObject).value(forKey:"id") as? Int
                     let title:String = ((jsonEvent as AnyObject).value(forKey:"title") as? String)!
                     let location:String = ((jsonEvent as AnyObject).value(forKey:"location") as? String)!
-//                    let vendor:String = (jsonEvent as AnyObject).value(forKey:"id") as? String
+                    //                    let vendor:String = (jsonEvent as AnyObject).value(forKey:"id") as? String
                     let lat = (jsonEvent as AnyObject).value(forKey:"latitude") as? String
                     let long = (jsonEvent as AnyObject).value(forKey:"longitude") as? String
                     let latlong:[Float] = [Float(lat!)!,Float(long!)!]
-//                    let backgroundData:Data = ((jsonEvent as AnyObject).value(forKey:"background_image_blob") as? Data)!
+                    //                    let backgroundData:Data = ((jsonEvent as AnyObject).value(forKey:"background_image_blob") as? Data)!
                     
                     let sDate: String = ((jsonEvent as AnyObject).value(forKey:"start_time") as? String)!
-//                    let isoDate = "2016-04-14T10:44:00+0000"
+                    //                    let isoDate = "2016-04-14T10:44:00+0000"
                     
-                    var date:Date = Date()
-                    if #available(iOS 10.0, *) {
-                        let dateFormatter = ISO8601DateFormatter()
-                        date = dateFormatter.date(from:sDate)!
-                    } else {
-                        // Fallback on earlier versions
-//                        let isoDate = "2016-04-14T10:44:00+0000"
-                        
-                        let dateFormatter = DateFormatter()
-                        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                        let tdate = dateFormatter.date(from:sDate)!
-                        let calendar = Calendar.current
-                        let components = calendar.dateComponents([.year, .month, .day, .hour], from: tdate)
-                        date = calendar.date(from:components)!
-                    }
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+                    let tdate = dateFormatter.date(from:sDate)!
+                    let calendar = Calendar.current
+                    let components = calendar.dateComponents([.year, .month, .day, .hour], from: tdate)
+                    let date = calendar.date(from:components)!
+                    
                     
                     
                     let event = Event(eventID: eventID!, title: title, location: location, vendor: "Test", latlong: latlong, backgroundImage: #imageLiteral(resourceName: "ucPark"), date: date)
                     
                     self.events.append(event!)
                 }
+                
             } catch let error as NSError {
                 print(error)
             }
         }).resume()
-    
         
-//        task.resume()
-
+        
+        //        task.resume()
+        
         
         
         return []
