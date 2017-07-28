@@ -20,18 +20,19 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         // Do any additional setup after loading the view.
         
         if Reachability.isConnectedToNetwork(){
-            events = getEventsOnline()!
+            SharedData.sharedEvents = getEventsOnline()!
+            saveEventstoLocal()
         }
-        loadSampleEvents()
+//        loadSampleEvents()
         
-        SharedData.sharedEvents = events
+//        SharedData.sharedEvents = events
         
         
         //        addNewEvents(localEvents: events)
         
         //addEventsToMap()
         
-        saveEventstoLocal()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -54,6 +55,8 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     private func getEventsOnline() -> [Event]?{
         let url = URL(string: "https://api.sudo.org.au/api/pontiyak/events/")!
         let request = URLRequest(url: url)
+        var eventList = [Event]()
+        
         
         URLSession.shared.dataTask(with:request, completionHandler: {(data, response, error) in
             guard let data = data, error == nil else { return }
@@ -70,21 +73,21 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
                     let latlong:[Float] = [Float(lat!)!,Float(long!)!]
                     //                    let backgroundData:Data = ((jsonEvent as AnyObject).value(forKey:"background_image_blob") as? Data)!
                     
-                    let sDate: String = ((jsonEvent as AnyObject).value(forKey:"start_time") as? String)!
+                    let sDate: String = ((jsonEvent as AnyObject).value(forKey:"start_time") as! String)
                     //                    let isoDate = "2016-04-14T10:44:00+0000"
                     
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-                    let tdate = dateFormatter.date(from:sDate)!
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+                    let tdate = dateFormatter.date(from:sDate)
                     let calendar = Calendar.current
-                    let components = calendar.dateComponents([.year, .month, .day, .hour], from: tdate)
+                    let components = calendar.dateComponents([.year, .month, .day, .hour], from: tdate!)
                     let date = calendar.date(from:components)!
                     
                     
                     
-                    let event = Event(eventID: eventID!, title: title, location: location, vendor: "Test", latlong: latlong, backgroundImage: #imageLiteral(resourceName: "ucPark"), date: date)
+                    let aevent = Event(eventID: eventID!, title: title, location: location, vendor: "Test", latlong: latlong, backgroundImage: #imageLiteral(resourceName: "ucPark"), date: date)
                     
-                    self.events.append(event!)
+                    eventList.append(aevent!)
                 }
                 
             } catch let error as NSError {
@@ -97,7 +100,7 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         
         
         
-        return []
+        return eventList
         
     }
     
