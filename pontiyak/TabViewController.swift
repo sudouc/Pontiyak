@@ -54,25 +54,29 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
     private func getEventsOnline() -> [Event]?{
         let url = URL(string: "https://api.sudo.org.au/api/pontiyak/events/")!
         let request = URLRequest(url: url)
-
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let response = response, let data = data {
-                print(response)
-                print(String(data: data, encoding: .utf8)!)
-                self.convertJSONData(data: data)
-            } else {
-                print(error!)
-            }
-        }
         
-        task.resume()
+        URLSession.shared.dataTask(with:request, completionHandler: {(data, response, error) in
+            guard let data = data, error == nil else { return }
+            
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String:Any]
+                print(json)
+                for item in json.keys{
+                    print("ITEM: \(item)")
+                    
+                }
+            } catch let error as NSError {
+                print(error)
+            }
+        }).resume()
+    
+        
+//        task.resume()
+
+        
         
         return []
         
-    }
-    
-    private func convertJSONData(data:Data){
-        print("\(data)")
     }
     
     private func getSavedEvents() -> [Event]?{
