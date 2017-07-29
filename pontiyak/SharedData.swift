@@ -15,14 +15,11 @@ class SharedData{
         let url = URL(string: "https://api.sudo.org.au/api/pontiyak/events/")!
         let request = URLRequest(url: url)
         var eventList = [Event]()
-
-         let semaphore = DispatchSemaphore(value: 0)
         
         URLSession.shared.dataTask(with:request, completionHandler: {(data, response, error) in
             guard let data = data, error == nil else { return }
-            
             do {
-                
+                var tempList = [Event]()
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [Any]
                 for jsonEvent in json!{
                     let eventID:Int? = (jsonEvent as AnyObject).value(forKey:"id") as? Int
@@ -47,18 +44,18 @@ class SharedData{
                     
                     let aevent = Event(eventID: eventID!, title: title, location: location, vendor: "Test", latlong: latlong, backgroundImage: #imageLiteral(resourceName: "ucPark"), date: date)
                     
-                    eventList.append(aevent!)
+                    tempList.append(aevent!)
                 }
-                
+                eventList.append(contentsOf: tempList)
             } catch let error as NSError {
                 print(error)
             }
-            semaphore.signal()
-            _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+
         }).resume()
 
-
+        repeat{
         SharedData.sharedEvents = eventList
+        }while(eventList.isEmpty)
         
     }
 

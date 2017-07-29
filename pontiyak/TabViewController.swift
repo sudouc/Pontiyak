@@ -19,9 +19,9 @@ class TabViewController: UITabBarController, UITabBarControllerDelegate {
         
         // Do any additional setup after loading the view.
         
-        if Reachability.isConnectedToNetwork(){
-            SharedData.getEventsOnline()
-        }
+//        if Reachability.isConnectedToNetwork(){
+//            SharedData.getEventsOnline()
+//        }
         
         events = SharedData.sharedEvents
         

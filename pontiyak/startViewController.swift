@@ -15,7 +15,12 @@ class startViewController: UIViewController {
         super.viewDidLoad()
         self.navigationController?.isToolbarHidden = true
         
+        if Reachability.isConnectedToNetwork(){
+            SharedData.getEventsOnline()
+        }
         checkUser()
+        
+        
         
         
         // Do any additional setup after loading the view.
