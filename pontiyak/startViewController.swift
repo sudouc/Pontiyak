@@ -18,7 +18,8 @@ class startViewController: UIViewController {
         if Reachability.isConnectedToNetwork(){
             SharedData.getEventsOnline()
         }
-        checkUser()
+        self.performSegue( withIdentifier: "skipSegue", sender: self)
+//        checkUser()
         
         
         

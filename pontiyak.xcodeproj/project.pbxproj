@@ -126,20 +126,20 @@
 		FA959FA91F0C4D6600810F05 /* pontiyak */ = {
 			isa = PBXGroup;
 			children = (
-				AA2ED98C1F1ED4CF00CE8D1B /* FeedTableViewController.swift */,
-				FA959FB01F0C4D6600810F05 /* Main.storyboard */,
 				AA5800841F23209D008C6607 /* startViewController.swift */,
+				AA2ED98C1F1ED4CF00CE8D1B /* FeedTableViewController.swift */,
+				AA90795A1F24A5C900275390 /* TabViewController.swift */,
+				AA49CF461F1A260F003C5F3E /* IntroViewController.swift */,
+				AA2ED9881F1ED1CA00CE8D1B /* FeedTableViewCell.swift */,
+				AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */,
+				FA959FAC1F0C4D6600810F05 /* ViewController.swift */,
+				FA959FB01F0C4D6600810F05 /* Main.storyboard */,
 				AA7A65211F237E80002221E6 /* Reachability.swift */,
 				AA2ED98E1F1ED56000CE8D1B /* Event.swift */,
 				AA2ED9861F1ECCA700CE8D1B /* User.swift */,
 				FA959FAA1F0C4D6600810F05 /* AppDelegate.swift */,
-				FA959FAC1F0C4D6600810F05 /* ViewController.swift */,
-				AA90795A1F24A5C900275390 /* TabViewController.swift */,
 				AA85AD0B1F26AA39004E0C83 /* SharedData.swift */,
-				AA49CF461F1A260F003C5F3E /* IntroViewController.swift */,
-				AA2ED9881F1ED1CA00CE8D1B /* FeedTableViewCell.swift */,
 				AA2ED9841F1E451000CE8D1B /* PingAroundMe.swift */,
-				AA49CF481F1B87C8003C5F3E /* ConfirmViewController.swift */,
 				FA959FB31F0C4D6600810F05 /* Assets.xcassets */,
 				FA959FB51F0C4D6600810F05 /* LaunchScreen.storyboard */,
 				FA959FB81F0C4D6600810F05 /* Info.plist */,
@@ -491,12 +491,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4HB58HMSH2;
 				INFOPLIST_FILE = pontiyak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercer.pontiyak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -505,12 +507,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 4HB58HMSH2;
 				INFOPLIST_FILE = pontiyak/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.mercer.pontiyak;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

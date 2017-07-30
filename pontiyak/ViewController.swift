@@ -24,7 +24,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Ask for Authorisation from the User.
-        self.locationManager.requestAlwaysAuthorization()
+//        self.locationManager.requestAlwaysAuthorization()
         
         // For use in foreground
         self.locationManager.requestWhenInUseAuthorization()
@@ -49,7 +49,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         events = SharedData.sharedEvents
         addEventsToMap()
         
-        addLongPressGesture()
+//        addLongPressGesture()
     }
     
     override func viewWillAppear(_ animated: Bool) {
