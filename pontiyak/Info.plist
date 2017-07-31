@@ -6,8 +6,6 @@
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
 	<string>UniPing</string>
-	<key>CFBundleDocumentTypes</key>
-	<array/>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -25,9 +23,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>$(PRODUCT_NAME) will use your camera to take a cool selfie 😉</string>
+	<string>UniPing will use your camera to take a cool selfie 😉</string>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>$(PRODUCT_NAME) will use your location to judge what events are closest to you.</string>
+	<string>UniPing will use your location to judge what events are closest to you.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>UniPing will use your location to judge what events are closest to you.</string>
 	<key>UILaunchStoryboardName</key>
@@ -51,8 +49,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
