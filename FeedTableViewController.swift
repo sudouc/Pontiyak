@@ -9,12 +9,16 @@
 import UIKit
 
 class FeedTableViewController: UITableViewController {
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationController?.viewControllers = [self]
+        
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl?.addTarget(self, action: #selector(refresh(sender:)), for: UIControlEvents.valueChanged)
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -62,6 +66,14 @@ class FeedTableViewController: UITableViewController {
         
         
         return cell
+    }
+
+    func refresh(sender:AnyObject){
+        if (Reachability.isConnectedToNetwork()){
+     SharedData.getEventsOnline()
+        }
+        self.tableView.reloadData()
+        refreshControl?.endRefreshing()
     }
 
     /*

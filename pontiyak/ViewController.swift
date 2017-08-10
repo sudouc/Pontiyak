@@ -17,6 +17,7 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     let uc = CLLocationCoordinate2D(latitude: -35.2379301, longitude: -149.0831383)
     
     var events = [Event]()
+    var firsttime = true
     
     @IBOutlet weak var map: MKMapView!
     var myLocation:CLLocationCoordinate2D?
@@ -48,55 +49,20 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         
         events = SharedData.sharedEvents
         addEventsToMap()
-        
-//        addLongPressGesture()
+      
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        firsttime = true
+        map.removeAnnotations(map.annotations)
+        events = SharedData.sharedEvents
+        addEventsToMap()
         map.showsUserLocation = true;
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         map.showsUserLocation = false
-    }
-    
-    func addLongPressGesture(){
-        let longPressRecogniser:UILongPressGestureRecognizer = UILongPressGestureRecognizer(target:self , action:#selector(ViewController.handleLongPress(_:)))
-        longPressRecogniser.minimumPressDuration = 1.0 //user needs to press for 2 seconds
-        self.map.addGestureRecognizer(longPressRecogniser)
-    }
-    
-    func handleLongPress(_ gestureRecognizer:UIGestureRecognizer){
-        if gestureRecognizer.state != .began{
-            return
-        }
-        
-        let touchPoint:CGPoint = gestureRecognizer.location(in: self.map)
-        let touchMapCoordinate:CLLocationCoordinate2D = self.map.convert(touchPoint, toCoordinateFrom: self.map)
-        
-        let annot:MKPointAnnotation = MKPointAnnotation()
-        
-        
-        annot.coordinate = touchMapCoordinate
-        annot.title = "Your Pin"
-        annot.subtitle = "Tap to edit"
-        
-        //Adds label to marker
-        let pinView = MKAnnotationView.init(annotation: annot, reuseIdentifier: nil)
-        pinView.isEnabled = true
-        
-        self.resetTracking()
-        self.map.addAnnotation(annot)
-        self.centerMap(touchMapCoordinate)
-    }
-    
-    func resetTracking(){
-        if (map.showsUserLocation){
-            map.showsUserLocation = false
-            self.map.removeAnnotations(map.annotations)
-            self.locationManager.stopUpdatingLocation()
-        }
     }
     
     func centerMap(_ center:CLLocationCoordinate2D){
@@ -109,6 +75,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
         map.setRegion(newRegion, animated: true)
     }
     
+    @IBAction func centreOnMe(_ sender: Any) {
+        firsttime = true
+        centerMap((map.userLocation.location?.coordinate)!)
+    }
     func saveCurrentLocation(_ center:CLLocationCoordinate2D){
         let message = "\(center.latitude) , \(center.longitude)"
         print(message)
@@ -118,7 +88,10 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
         
+        if firsttime{
+            firsttime = false
         centerMap(locValue)
+        }
     }
     
     static var enable:Bool = true
