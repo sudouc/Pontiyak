@@ -68,7 +68,7 @@ class FeedTableViewController: UITableViewController {
         return cell
     }
 
-    func refresh(sender:AnyObject){
+    @objc func refresh(sender:AnyObject){
         if (Reachability.isConnectedToNetwork()){
      SharedData.getEventsOnline()
         }
