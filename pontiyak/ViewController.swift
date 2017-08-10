@@ -54,6 +54,9 @@ class ViewController: UIViewController,CLLocationManagerDelegate,MKMapViewDelega
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        map.removeAnnotations(map.annotations)
+        events = SharedData.sharedEvents
+        addEventsToMap()
         map.showsUserLocation = true;
     }
     
