@@ -243,6 +243,7 @@
 					FA959FA61F0C4D6600810F05 = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 4HB58HMSH2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -252,11 +253,13 @@
 					};
 					FA959FBC1F0C4D6600810F05 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FA959FA61F0C4D6600810F05;
 					};
 					FA959FC71F0C4D6600810F05 = {
 						CreatedOnToolsVersion = 8.3.2;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 						TestTargetID = FA959FA61F0C4D6600810F05;
 					};
